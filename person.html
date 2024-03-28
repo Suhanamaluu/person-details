@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Person Details</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    .container {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Person Details</h2>
+    <input type="text" id="searchInput" class="form-control" placeholder="Search by name...">
+    <button onclick="searchPerson()" class="btn btn-primary mt-2">Search</button>
+    <div id="result" class="mt-3"></div>
+</div>
+
+<script>
+    let persons = [
+    {
+    "name": "Alice",
+    "age": 25,
+    "place": "New York",
+    "dob": "1998-03-12"
+  },
+  {
+    "name": "Bob",
+    "age": 32,
+    "place": "Los Angeles",
+    "dob": "1991-07-19"
+  },
+  {
+    "name": "Charlie",
+    "age": 41,
+    "place": "Chicago",
+    "dob": "1982-11-03"
+  },
+  {
+    "name": "David",
+    "age": 18,
+    "place": "Houston",
+    "dob": "2005-05-08"
+  },
+  {
+    "name": "Emily",
+    "age": 29,
+    "place": "San Francisco",
+    "dob": "1994-09-26"
+  },
+  {
+    "name": "Frank",
+    "age": 36,
+    "place": "Boston",
+    "dob": "1987-12-30"
+  },
+  {
+    "name": "Grace",
+    "age": 22,
+    "place": "Miami",
+    "dob": "2001-01-14"
+  },
+  {
+    "name": "Harry",
+    "age": 47,
+    "place": "Seattle",
+    "dob": "1976-06-21"
+  }
+    ];
+
+    function searchPerson() {
+        const searchTerm = document.getElementById('searchInput').value;
+        const person = persons.find(p => p.name.toLowerCase() === searchTerm.toLowerCase());
+        if (person) {
+            document.getElementById('result').innerHTML = `Name: ${person.name}, Age: ${person.age}  Place: ${person.place}  DOB: ${person.dob}`;
+        } else {
+            document.getElementById('result').innerHTML = 'Person not found.';
+        }
+    }
+</script>
+</body>
+</html>
